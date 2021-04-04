@@ -1,0 +1,32 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "nba-api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\n\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rappdl/nba-api.git"
+  },
+  "author": "rappdl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rappdl/nba-api/issues"
+  },
+  "homepage": "https://github.com/rappdl/nba-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-static": "^1.2.6",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.1.1",
+    "nba": "^4.15.0",
+    "nba.js": "^0.6.1",
+    "node-fetch": "^2.6.1",
+    "path": "^0.12.7",
+    "router": "^1.3.5",
+    "yarn": "^1.22.10"
+  }
+}
