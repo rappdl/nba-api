@@ -10,7 +10,17 @@ module.exports = function (services, express){
     router.get('/teams', getAllTeams)
     router.get('/teams/:id', getASpecificTeam)
     router.get('/teams/:id/players', getAllPlayersOfASpecificTeam)
+    router.get('/players/:id', getASpecificPlayer)
+    router.get('/players', getAllPlayers)
     return router
+
+    function getAllPlayers(req, res){
+        services.getAllPlayers()
+        .then(players => {
+            return res.status(200).json( {'players': players})
+        })
+        .catch( err => error(err, res))
+    }
 
     function getAllTeams(req, res) {
         services.getAllTeams()
@@ -29,6 +39,15 @@ module.exports = function (services, express){
         .catch( err => error(err, res))
     }
 
+    function getASpecificPlayer(req, res) {
+        const playerId = req.params.id
+        services.getASpecificPlayer(playerId)
+        .then(player => {
+            return res.status(200).json({ 'player': player })
+        })
+        .catch( err => error(err, res))
+    }
+
     function getAllPlayersOfASpecificTeam(req, res){
         const teamId = req.params.id
         services.getAllPlayersOfASpecificTeam(teamId)
@@ -37,7 +56,6 @@ module.exports = function (services, express){
         })
         .catch( err => error(err, res))
     }
-
 
     function error(err, res){
         switch (err) {

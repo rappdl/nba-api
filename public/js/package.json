@@ -4,12 +4,17 @@
   "description": "API",
   "main": "nbapi",
   "scripts": {
+    "start": "node  .app.js",
     "test": "test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.4"
+    "express-handlebars": "^5.3.4",
+    "node-fetch": "^2.6.7",
+    "require": "^2.4.20"
   }
 }

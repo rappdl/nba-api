@@ -5,6 +5,18 @@ module.exports = function (nbaDB){
         throw "Invalid nbaDBAccess object"
     }
 
+
+
+    function getAllPlayers() {
+        return nbaDB.getAllPlayers()
+        .then(result => {
+            if (result.errno) {
+                return Promise.reject(errors.SERVICES_UNAVAILABLE)
+            }
+            return result
+        })
+    }
+
     function getAllTeams() {
         return nbaDB.getAllTeams()
         .then(result => {
@@ -25,6 +37,17 @@ module.exports = function (nbaDB){
     })
    }
 
+   function getASpecificPlayer(playerId) {
+    return nbaDB.getASpecificPlayer(playerId)
+    .then(result => {
+        if (result.errno) {
+            return Promise.reject(errors.SERVICES_UNAVAILABLE)
+        }
+        return result
+    })
+   }
+
+
    function getAllPlayersOfASpecificTeam(teamId) {
     return nbaDB.getAllPlayersOfASpecificTeam(teamId)
     .then(result => {
@@ -38,6 +61,8 @@ module.exports = function (nbaDB){
     return{
         getAllTeams: getAllTeams,
         getASpecificTeam:getASpecificTeam,
-        getAllPlayersOfASpecificTeam:getAllPlayersOfASpecificTeam
+        getAllPlayersOfASpecificTeam:getAllPlayersOfASpecificTeam,
+        getASpecificPlayer:getASpecificPlayer,
+        getAllPlayers:getAllPlayers
     }
 }
